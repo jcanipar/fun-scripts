@@ -8,7 +8,7 @@ require 'dotenv'
 Dotenv.load
 
 def send_slack_message(message)
-	channel = "secret-test-channel"
+	channel = "fantasy-football"
 	token = ENV['NERDS_OF_FEATHER_SLACK_TOKEN']
 	rc = HTTP.post("https://slack.com/api/chat.postMessage", params: {
 		token: token,
@@ -27,7 +27,7 @@ time = Time.now
 balls = Array.new(78)
 
 #create array of all players in the league in REVERSE order of finish last year
-players = Array['Snarski', 'Roman', 'Jason', 'Simpson', 'Nasty', 'David', 'Gage', 'Doug', 'Lenny', 'Jacob', 'Ben', 'Brad']
+players = Array['<@U1HUPC3C0>', '<@U1HVAGFL6>', '<@U1HNZTTJ6>', 'Allister', '<@U1HPYG9NW>', 'Jensen', '<@U1HNCDZCY>', 'Krishna', '<@U1HQF8L57>', '<@U1HNFUH9Q>', 'Dan', '<@U3LGGBP4P>']
 
 
 
@@ -63,7 +63,8 @@ for i in 0..players.size
 
 	for j in 1..weight
 		balls[current_ball] = players[i]
-			current_ball = current_ball + 1
+		current_ball = current_ball + 1
+		#puts players[i]
 	end
 
 	weight = weight - 1
@@ -100,7 +101,7 @@ end
 
 	end
 
-	send_slack_message("*The 2018 Bad Boys in the Summer Draft Lottery*")
+	send_slack_message("*The 2019 Bad Boys in the Summer Draft Lottery*")
 
 
 	for l in 0..11
@@ -111,17 +112,17 @@ end
 		elsif (l == 10)
 			message =  "The 2nd pick goes to " + draft_order[11-l]
 		elsif (l == 11)
-			message = ":trophy: The first overall pick in the 2018 Bad Boys in the Summer NFL Draft will be " + draft_order[11-l] + " :trophy:"
+			message = ":trophy: The first overall pick in the 2019 Bad Boys in the Summer NFL Draft will be " + draft_order[11-l] + " :trophy:"
 		end
 
 		send_slack_message(message)
 
-		sleep(2)
+		sleep(260)
 	end
 
-	sleep(1)
+	sleep(30)
 
-	previous_finish_msg = "*2018 Official Draft Order*\n"
+	previous_finish_msg = "*2019 Official Draft Order*\n"
 	previous_finish_msg = previous_finish_msg + ">1st: " + draft_order[0] + "\n"
 	previous_finish_msg = previous_finish_msg + ">2nd: " + draft_order[1] + "\n"
 	previous_finish_msg = previous_finish_msg + ">3rd: " + draft_order[2] + "\n"
