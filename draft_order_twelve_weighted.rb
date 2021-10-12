@@ -26,9 +26,14 @@ time = Time.now
 #78 for 12 players right?
 balls = Array.new(78)
 
-#create array of all players in the league in REVERSE order of finish last year
-players = Array['<@U1HUPC3C0>', '<@U1HVAGFL6>', '<@U1HNZTTJ6>', 'Allister', '<@U1HPYG9NW>', 'Jensen', '<@U1HNCDZCY>', 'Krishna', '<@U1HQF8L57>', '<@U1HNFUH9Q>', 'Dan', '<@U3LGGBP4P>']
 
+#create array of all players in the league in REVERSE order of finish last year
+#players = Array['Roman', 'Zombie Kyle Team', 'Ben', 'Brad', 'Dave', 'Jason', 'Doug', 'Jacob', 'Burt', 'Lenny', 'Gage', 'Nasty']
+players = Array['Nate Smith', 'Dan Lanoue', 'Sean Burt', 'Shawn Basalyga', 'Jacob Caniparoli', 'Allister Dawson', 'Louis Chenga', 'Krishna Ramdeo', 'Zachary Jensen', 'Aline Babine', 'Kyle Simpson', 'Nate Morelli']
+
+league_name = "Bad Boys in the Summer "
+league_year = "2021"
+time_to_sleep = 90
 
 
 #print list of players
@@ -101,10 +106,12 @@ end
 
 	end
 
-	send_slack_message("*The 2019 Bad Boys in the Summer Draft Lottery*")
+	send_slack_message("*" + league_name + " Draft Lottery*")
 
 
 	for l in 0..11
+		sleep(time_to_sleep)
+
 		if (l<9)
 			message = "The " + ((11-l)+1).to_s + "th pick goes to " + draft_order[11-l]
 		elsif (l == 9)
@@ -112,17 +119,17 @@ end
 		elsif (l == 10)
 			message =  "The 2nd pick goes to " + draft_order[11-l]
 		elsif (l == 11)
-			message = ":trophy: The first overall pick in the 2019 Bad Boys in the Summer NFL Draft will be " + draft_order[11-l] + " :trophy:"
+			message = ":trophy: The first overall pick in the " + league_year + " " + league_name + " Draft will be " + draft_order[11-l] + " :trophy:"
 		end
 
 		send_slack_message(message)
 
-		sleep(260)
+		
 	end
 
-	sleep(30)
+	sleep(time_to_sleep/2)
 
-	previous_finish_msg = "*2019 Official Draft Order*\n"
+	previous_finish_msg = "*" + league_year + " " + league_name + " " + "Official Draft Order*\n"
 	previous_finish_msg = previous_finish_msg + ">1st: " + draft_order[0] + "\n"
 	previous_finish_msg = previous_finish_msg + ">2nd: " + draft_order[1] + "\n"
 	previous_finish_msg = previous_finish_msg + ">3rd: " + draft_order[2] + "\n"
