@@ -22,18 +22,21 @@ end
 
 time = Time.now
 
+puts ENV['NERDS_OF_FEATHER_SLACK_TOKEN']
+
 #create 55 "ping pong balls"
 #78 for 12 players right?
 balls = Array.new(78)
 
 
 #create array of all players in the league in REVERSE order of finish last year
-#players = Array['Roman', 'Zombie Kyle Team', 'Ben', 'Brad', 'Dave', 'Jason', 'Doug', 'Jacob', 'Burt', 'Lenny', 'Gage', 'Nasty']
-players = Array['Nate Smith', 'Dan Lanoue', 'Sean Burt', 'Shawn Basalyga', 'Jacob Caniparoli', 'Allister Dawson', 'Louis Chenga', 'Krishna Ramdeo', 'Zachary Jensen', 'Aline Babine', 'Kyle Simpson', 'Nate Morelli']
+#players = Array['Holstein', 'Gage', 'Burt', 'Nasty Nate', 'Jason/Eric', 'Lenny', 'Jacob', 'Dan', 'Roman', 'Doug', 'Brad', 'Ben']
+players = Array['Nathaniel \'Nasty Nate\' Smith', 'Nathan Morelli', 'Kyle Simpson', 'Luis Chunga-Celis', 'Jacob Caniparoli', 'Krishna Ramdeo', 'Shawn Basalyga', 'Adam Caniparoli', 'Aline Chunga Celis', 'Sean Burt', 'Zach Jensen', 'Dan Lanoue']
 
 league_name = "Bad Boys in the Summer "
-league_year = "2021"
-time_to_sleep = 90
+#league_name = "Notoriously Nasty FFL "
+league_year = "2024"
+time_to_sleep = 60
 
 
 #print list of players

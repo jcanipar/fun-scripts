@@ -28,9 +28,14 @@ time = Time.now
 #chunga - U1HQF8L57
 #burt - U1HVAGFL6
 #jacob - U1HNFUH9Q
+#ayron - U2R0113NW
+#greg - U5G0HTRCP
+#nats - U8C493U58
+
 
 #create array of all players in the league in order of finish last year
-players = Array['<@U1HNZTTJ6>', '<@U1HQF8L57>', 'Adam', 'Krishna', '<@U1HNFUH9Q>', 'Dan', '<@U2R0113NW>', '<@U1HPYG9NW>', '<@U8C493U58>', '<@U1HVAGFL6>' ]
+#players = Array['<@U1HNZTTJ6>', '<@U1HQF8L57>', 'Adam', 'Krishna', '<@U1HNFUH9Q>', 'Dan', '<@U2R0113NW>', '<@U1HPYG9NW>', '<@U8C493U58>', '<@U1HVAGFL6>' ]
+players = Array['Krishna', '<@U5G0HTRCP>', '<@U8C493U58>', '<@U1HNFUH9Q>', '<@U2R0113NW>', '<@U1HPYG9NW>', 'Dan', 'Adam', '<@U1HNZTTJ6>', '<@U1HQF8L57>' ].reverse
 
 num_players = players.size
 
@@ -118,7 +123,7 @@ end
 
 	end
 
-	send_slack_message("*The 2020 Fantasy Basketball Draft Summary*")
+	#send_slack_message("*The 2021 Fantasy Basketball Draft Summary*")
 
 
 	for l in 0..(num_players-1)
@@ -129,17 +134,17 @@ end
 		elsif (l == (num_players-2))
 			message =  "The 2nd pick goes to " + draft_order[(num_players-1)-l]
 		elsif (l == (num_players-1))
-			message = ":trophy: The first overall pick in the 2020 Fantasy NBA Draft will be " + draft_order[(num_players-1)-l] + " :trophy:"
+			message = ":trophy: The first overall pick in the 2023 Fantasy NBA Draft will be " + draft_order[(num_players-1)-l] + " :trophy:"
 		end
 
 		send_slack_message(message)
 
-		sleep(150)
+		sleep(60)
 	end
 
 	sleep(1)
 
-	previous_finish_msg = "*2020 Official Draft Order*\n"
+	previous_finish_msg = "*2023 Official Draft Order*\n"
 	previous_finish_msg = previous_finish_msg + ">1st: " + draft_order[0] + "\n"
 	previous_finish_msg = previous_finish_msg + ">2nd: " + draft_order[1] + "\n"
 	previous_finish_msg = previous_finish_msg + ">3rd: " + draft_order[2] + "\n"
